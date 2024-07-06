@@ -1,4 +1,4 @@
-# Euler Eulerchain - Generative AI Framework 📊
+# Eulerchain - Generative AI Framework 📊
 
 ![Euler Eulerchain](https://via.placeholder.com/800x400)
 
