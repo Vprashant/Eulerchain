@@ -1,4 +1,4 @@
-# Euler Eulerchain - Generative AI Framework 📊
+# Eulerchain - Generative AI Framework 📊
 
 
 ## Author ✍️
@@ -162,11 +162,11 @@ flow.add_task("SafeTask", safe_task)
 **Q**: Can I create custom tasks?
 **A**: Yes, you can create custom tasks by extending the `Task` class.
 
-## Contributing 🤝
+## Support 🙋‍♂️
 
-We welcome contributions to Eulerchain! Please refer to the `CONTRIBUTING.md` file for guidelines on how to contribute.
+For any issues or questions, please contact:
 
-## License 📜
+**Name**: Prashant Verma  
+**Email**: prashant27050@gmail.com
 
-Eulerchain is licensed under the MIT License. See the `LICENSE` file for more information.
-
+Or visit the GitHub repository for more information and updates.
