@@ -1,6 +1,5 @@
 # Euler Eulerchain - Generative AI Framework 📊
 
-![Euler Eulerchain](https://via.placeholder.com/800x400)
 
 ## Author ✍️
 **Name**: Prashant Verma  
@@ -8,133 +7,166 @@
 
 ---
 
-## Table of Contents 📚
+## Table of Contents 📖
 
-1. [Introduction](#introduction-ℹ️)
-2. [Installation](#installation-💻)
-3. [Project Structure](#project-structure-📁)
-4. [Running the Application](#running-the-application-🚀)
-5. [User Guide](#user-guide-📝)
-    - [Main Interface](#main-interface-🖥️)
-    - [Loading a Graph](#loading-a-graph-📂)
-    - [Visualizing a Graph](#visualizing-a-graph-🔍)
-    - [Adding Nodes](#adding-nodes-➕)
-    - [Adding Edges](#adding-edges-🔗)
-    - [Saving a Graph](#saving-a-graph-💾)
-    - [Executing Queries](#executing-queries-📋)
-    - [Saving Queries](#saving-queries-💼)
-    - [Loading Queries](#loading-queries-📄)
-6. [FAQ](#faq-❓)
-7. [Support](#support-🙋‍♂️)
+1. [Introduction](#introduction)
+2. [Installation](#installation)
+3. [Architecture](#architecture)
+4. [Core Concepts](#core-concepts)
+    - [Flows](#flows)
+    - [Tasks](#tasks)
+    - [RAG](#rag)
+    - [Graph RAG](#graph-rag)
+5. [Usage](#usage)
+    - [Creating Flows](#creating-flows)
+    - [Adding Tasks](#adding-tasks)
+    - [Executing Flows](#executing-flows)
+6. [Advanced Features](#advanced-features)
+    - [Custom Components](#custom-components)
+    - [Integration with APIs](#integration-with-apis)
+    - [Error Handling](#error-handling)
+7. [Best Practices](#best-practices)
+8. [FAQ](#faq)
+9. [Contributing](#contributing)
+10. [License](#license)
 
----
+## Introduction 🌟
 
-## Introduction ℹ️
+Eulerchain is a versatile framework designed to facilitate the creation of sophisticated RPA flows and RAG processes. By utilizing graph-based RAG, Eulerchain offers an efficient and scalable solution for AI-driven automation.
 
-The Euler Eulerchain is a knowledge graph viewer that allows users to create, visualize, and manage knowledge graphs. It provides an interactive graphical user interface (GUI) for performing various operations on the knowledge graph such as adding nodes and edges, executing queries, and visualizing the graph.
+## Installation 🛠️
 
-## Installation 💻
+To get started with Eulerchain, install it using pip:
 
-1. **Clone the Repository**:
-    ```bash
-    git clone https://github.com/yourusername/euler_graph_database.git
-    cd euler_graph_database
-    ```
-
-2. **Install Dependencies**:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-## Project Structure 📁
-
-
-## Running the Application 🚀
-
-To run the application, use the following command:
-```bash
-python -m gui.app
+```sh
+pip install eulerchain
 ```
 
-This command ensures that the Python interpreter recognizes the package structure and resolves imports correctly.
+## Architecture 🏛️
 
-## User Guide 📝
+Eulerchain's architecture is built around modular components, making it easy to extend and customize. The core components include:
 
-### Main Interface 🖥️
+- **Flow Manager**: Manages the creation and execution of RPA flows.
+- **Task Scheduler**: Schedules and executes individual tasks within a flow.
+- **RAG Engine**: Handles retrieval-augmented generation tasks.
+- **Graph RAG Processor**: Manages graph-based RAG workflows.
 
-The main interface of the application consists of the following components:
-- **Header**: Displays the application name.
-- **Navbar**: Provides options to load, visualize, add nodes, add edges, save the graph, and display help/about information.
-- **Query Entry**: A text area to enter queries.
-- **Buttons**: 
-    - `Execute Query`: Executes the entered query.
-    - `Save Query`: Saves the entered queries to a file.
-    - `Load Query`: Loads queries from a file.
-- **Output Areas**:
-    - `Query Output`: Displays the results of executed queries.
-    - `JSON Output`: Displays the JSON representation of the current graph.
+## Core Concepts 💡
 
-### Loading a Graph 📂
+### Flows 🌊
 
-1. Click on the `Load Graph` button in the navbar.
-2. Select the file containing the graph you want to load.
+A **Flow** represents a sequence of tasks to be executed in a specific order. Flows can be simple or complex, depending on the use case.
 
-### Visualizing a Graph 🔍
+### Tasks 🛠️
 
-1. After loading a graph, click on the `Visualize Graph` button in the navbar.
-2. The graph will be displayed in the visualization area.
+A **Task** is an individual unit of work within a flow. Tasks can perform various actions, such as data retrieval, processing, or interaction with external systems.
 
-### Adding Nodes ➕
+### RAG 📚
 
-1. Click on the `Add Node` button in the navbar.
-2. Enter the node ID and label in the prompt that appears.
-3. The node will be added to the graph.
+**RAG (Retrieval-Augmented Generation)** combines retrieval and generation capabilities to enhance AI workflows. It retrieves relevant information and generates responses based on that information.
 
-### Adding Edges 🔗
+### Graph RAG 🌐
 
-1. Click on the `Add Edge` button in the navbar.
-2. Enter the edge ID, source node ID, target node ID, and edge label in the prompt that appears.
-3. The edge will be added to the graph.
+**Graph RAG** extends RAG by organizing information in a graph structure, allowing for more efficient retrieval and generation processes. This is particularly useful for complex workflows involving multiple data sources and relationships.
 
-### Saving a Graph 💾
+## Usage 📋
 
-1. Click on the `Save Graph` button in the navbar.
-2. Choose the location to save the graph file.
+### Creating Flows
 
-### Executing Queries 📋
+To create a new flow, use the `create_flow` method:
 
-1. Enter your query in the `Query Entry` area.
-2. Click the `Execute Query` button.
-3. The result of the query will be displayed in the `Query Output` area.
+```python
+from eulerchain import EulerChain
 
-### Saving Queries 💼
+chain = EulerChain()
+flow = chain.create_flow("MyFlow")
+```
 
-1. Enter your queries in the `Query Entry` area.
-2. Click the `Save Query` button.
-3. Choose the location to save the queries file (with `.euler` extension).
+### Adding Tasks
 
-### Loading Queries 📄
+Add tasks to the flow using the `add_task` method:
 
-1. Click the `Load Query` button.
-2. Select the file containing the queries.
-3. The queries will be loaded into the `Query Entry` area.
+```python
+flow.add_task("Task1", lambda: print("Executing Task 1"))
+flow.add_task("Task2", lambda: print("Executing Task 2"))
+```
+
+### Executing Flows
+
+Execute the flow using the `execute_flow` method:
+
+```python
+chain.execute_flow("MyFlow")
+```
+
+## Advanced Features 🔧
+
+### Custom Components
+
+You can create custom components to extend the functionality of Eulerchain. For example, creating a custom task:
+
+```python
+from eulerchain import Task
+
+class CustomTask(Task):
+    def execute(self):
+        print("Executing custom task")
+
+chain.create_flow("CustomFlow").add_task("CustomTask", CustomTask())
+```
+
+### Integration with APIs
+
+Eulerchain supports seamless integration with various APIs. For example, integrating with a weather API:
+
+```python
+import requests
+
+def fetch_weather():
+    response = requests.get("https://api.weather.com/v3/wx/conditions/current")
+    return response.json()
+
+flow.add_task("FetchWeather", fetch_weather)
+```
+
+### Error Handling
+
+Implement robust error handling mechanisms to manage task failures gracefully:
+
+```python
+def safe_task():
+    try:
+        # Task logic here
+        pass
+    except Exception as e:
+        print(f"Task failed: {e}")
+
+flow.add_task("SafeTask", safe_task)
+```
+
+## Best Practices 🌟
+
+- **Modularity**: Keep your tasks modular and reusable.
+- **Documentation**: Document your flows and tasks for better maintainability.
+- **Testing**: Thoroughly test your tasks and flows to ensure reliability.
+- **Error Handling**: Implement comprehensive error handling to manage failures gracefully.
 
 ## FAQ ❓
 
-**Q: What file formats are supported for saving graphs?**  
-A: The application supports saving graphs in JSON format.
+**Q**: What is Eulerchain?
+**A**: Eulerchain is a GenAI framework designed for creating RPA flows and RAG tasks using graph-based RAG.
 
-**Q: How do I fix module import errors?**  
-A: Ensure you are running the application using `python -m gui.app` to correctly set up the module paths.
+**Q**: How do I install Eulerchain?
+**A**: Install Eulerchain using pip: `pip install eulerchain`.
 
-**Q: Can I visualize large graphs?**  
-A: Yes, but performance may vary depending on the size of the graph and the capabilities of your system.
+**Q**: Can I create custom tasks?
+**A**: Yes, you can create custom tasks by extending the `Task` class.
 
-## Support 🙋‍♂️
+## Contributing 🤝
 
-For any issues or questions, please contact:
+We welcome contributions to Eulerchain! Please refer to the `CONTRIBUTING.md` file for guidelines on how to contribute.
 
-**Name**: Prashant Verma  
-**Email**: prashant27050@gmail.com
+## License 📜
 
-Or visit the GitHub repository for more information and updates.
+Eulerchain is licensed under the MIT License. See the `LICENSE` file for more information.
+
